@@ -1,0 +1,15 @@
+<h2>Add Department</h2>
+<form [formGroup]="deptForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control"
+            formControlName="name">
+
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-success"
+        [disabled]="!deptForm.valid">Add</button>
+
+        <button class="btn btn-secondary" [routerLink]="['/departments']">Department</button>
+    </div>
+</form>
