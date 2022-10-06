@@ -8,6 +8,7 @@ import { Employee } from '../models/employee';
   providedIn: 'root'
 })
 export class EmployeeService {
+  //http://localhost:4200/api/employees
   private apiUrl = environment.apiBaseUrl + 'employees';
 
   private httpOptions = {

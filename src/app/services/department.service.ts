@@ -8,6 +8,7 @@ import { Department } from '../models/department';
   providedIn: 'root'
 })
 export class DepartmentService {
+  //http://localhost:4200/api/departments
   private apiUrl = environment.apiBaseUrl + 'departments';
 
   private httpOptions = {
