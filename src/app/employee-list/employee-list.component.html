@@ -1,17 +1,18 @@
-<h2>Employee List</h2>
-<button class="btn btn-primary" [routerLink]="['add']">Add Employee</button>
-<table class="table table-striped">
+<div class="card p-5 mx-auto" style="width: 80%;">
+<h2 class="card-title mx-auto">Employee List</h2>
+<button class="btn btn-primary my-3" [routerLink]="['add']">Add Employee</button>
+<table class="table table-striped mt-5">
     <thead>
         <th>Id</th>
-        <td>Name</td>
-        <td>Date Of Birth</td>
-        <td>Gender</td>
-        <td>Email</td>
-        <td>Mobile No</td>
-        <td>Department Name</td>
-        <td>Actions</td>
+        <th>Name</th>
+        <th>Date Of Birth</th>
+        <th>Gender</th>
+        <th>Email</th>
+        <th>Mobile No</th>
+        <th>Department Name</th>
+        <th>Actions</th>
     </thead>
-    <tbody>
+    <tbody class="table-group-divider">
         <tr *ngFor="let e of empList">
             <td>{{e.id}}</td>
             <td>{{e.name}}</td>
@@ -21,9 +22,10 @@
             <td>{{e.mobileNo}}</td>
             <td>{{e.department.name}}</td>
             <td>
-                <button [routerLink]="['update', e.id]" class="btn btn-primary">Update</button>
-                <button (click)="delete(e.id)" class="btn btn-danger">Delete</button>
+                <button [routerLink]="['update', e.id]" class="btn btn-warning m-2">Update</button>
+                <button (click)="delete(e.id)" class="btn btn-danger m-2">Delete</button>
             </td>
         </tr>
     </tbody>
 </table>
+</div>

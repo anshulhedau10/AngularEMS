@@ -17,12 +17,12 @@ export class AddEmployeeComponent implements OnInit {
   empForm!: FormGroup;
   gender = Gender;
   
-  constructor(private deptDervice: DepartmentService,
+  constructor(private deptService: DepartmentService,
       private empService: EmployeeService,
       private router: Router) { }
 
   ngOnInit(): void {
-    this.deptDervice.getList().subscribe(list => {
+    this.deptService.getList().subscribe(list => {
       this.deptList = list;
       console.log(list);
     }, err =>  {
@@ -30,18 +30,18 @@ export class AddEmployeeComponent implements OnInit {
     });
 
     this.empForm = new FormGroup({
-      "name": new FormControl("", Validators.required),
-      "dateOfBirth": new FormControl("", Validators.required),
-      "gender": new FormControl(null, Validators.required),
-      "email": new FormControl("", [Validators.required, Validators.email]),
-      "mobileNo": new FormControl("", [Validators.required]),
-      "departmentId": new FormControl("", Validators.required),
+      name: new FormControl("", Validators.required),
+      dateOfBirth: new FormControl("", Validators.required),
+      gender: new FormControl(null, Validators.required),
+      email: new FormControl("", [Validators.required, Validators.email]),
+      mobileNo: new FormControl("", [Validators.required]),
+      departmentId: new FormControl("", Validators.required),
     });
   }
 
   onSubmit() {
     this.empService.add(this.empForm.value as unknown as Employee).subscribe(result => {
-      alert('Employee added successfully');
+      alert('Employee submitted successfully');
       //redirect to emp List
       this.router.navigate(['/employees']);
     }, err => {

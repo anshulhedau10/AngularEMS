@@ -17,7 +17,7 @@ export class AddDepartmentComponent implements OnInit {
 
   ngOnInit(): void {
     this.deptForm = new FormGroup({
-      "name": new FormControl("", Validators.required)
+      name: new FormControl("", Validators.required)
     });
   }
 

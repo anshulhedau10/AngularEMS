@@ -19,13 +19,13 @@ export class UpdateDeptComponent implements OnInit {
   ngOnInit(): void {
     //get dept id param
     let deptId = this.route.snapshot.params['id'];
-    console.log('Dept id' + deptId);
+    console.log('Dept id : ' + deptId);
 
-    //get dept details y calling service, id
+    //get dept details by calling service and passing id
     this.deptService.getById(deptId).subscribe(dept => {
       this.deptForm = new FormGroup({
-        "id": new FormControl(dept.id),
-        "name": new FormControl(dept.name, Validators.required)
+        id: new FormControl(dept.id),
+        name: new FormControl(dept.name, Validators.required)
       });
     }, err => {
       alert(err);

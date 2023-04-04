@@ -1,20 +1,28 @@
-<div class="card p-5 mx-auto" style="width: 50%;">
-<h2 class="card-title mx-auto">Add Employee</h2>
+<div class="card p-5 mx-auto" style="width: 80%;">
+<h2 class="card-title mx-auto">Update Employee</h2>
 <form [formGroup]="empForm" (ngSubmit)="onSubmit()">
+    <!-- Employee Id -->
+    <div class="form-group">
+        <label for="id">Id</label>
+        <input type="number" class="form-control"
+            formControlName="id" readonly>
+    </div>
+    
     <!-- Name -->
     <div class="form-group">
         <label for="name">Name</label>
-        <input type="text" class="form-control" formControlName="name">
+        <input type="text" class="form-control"
+            formControlName="name">
     </div>
     <div *ngIf="empForm.get('name')?.invalid && (empForm.get('name')?.dirty || empForm.get('name')?.touched)"
         class="alert alert-danger">
         <div *ngIf="empForm.get('name')?.errors?.['required']"></div>
             Name is required.
     </div>
-    <!-- Date Of Birth -->
+    <!-- Dat Of Birth  -->
     <div class="form-group">
         <label for="dateOfBirth">Date of Birth</label>
-        <input type="date" class="form-control" formControlName="dateOfBirth">
+        <input type="date" class="form-control" formControlName="dateOfBirth"> 
     </div>
     <div *ngIf="empForm.get('dateOfBirth')?.invalid && (empForm.get('dateOfBirth')?.dirty || empForm.get('dateOfBirth')?.touched)"
         class="alert alert-danger">
@@ -67,12 +75,11 @@
         <div *ngIf="empForm.get('department')?.errors?.['required']"></div>
             Department name is required.
     </div>
-
+    
     <div class="form-group">
         <button type="submit" class="btn btn-success m-3"
-        [disabled]="!empForm.valid">Add</button>
-        <button class="btn btn-outline-info m-3" [routerLink]="['/employees']">Employees</button>
+        [disabled]="!empForm.valid">Update</button>
+        <button class="btn btn-outline-info m-3" [routerLink]="['/employees']">Employee</button>
     </div>
-
 </form>
 </div>
